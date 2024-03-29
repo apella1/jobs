@@ -4,7 +4,7 @@
 
 ## Links
 
-- [Frontend Repository](https://github.com/apella1/jobs-site)
+- [Frontend Repository](https://github.com/apella1/jobs_site)
 - [Deployed Website](https://jobs.vercel.app/)
 
 ## API Docs
