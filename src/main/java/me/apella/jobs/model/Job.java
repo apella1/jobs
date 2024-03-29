@@ -1,6 +1,12 @@
 package me.apella.jobs.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "jobs")
 public class Job {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private Long id;
     private String title;
     private String description;
@@ -15,6 +21,9 @@ public class Job {
         this.minSalary = minSalary;
         this.maxSalary = maxSalary;
         this.location = location;
+    }
+
+    public Job() {
     }
 
     public Long getId() {
