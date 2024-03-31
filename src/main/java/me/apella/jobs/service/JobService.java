@@ -3,15 +3,17 @@ package me.apella.jobs.service;
 import me.apella.jobs.model.Job;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface JobService {
     List<Job> findAll();
 
     void createJob(Job job);
 
-    Job getJobById(Long id);
+    Job getJobById(UUID id);
 
-    boolean deleteJobById(Long id);
+    boolean deleteJobById(UUID id);
 
-    boolean updateJobById(Long id, Job updatedJob);
+    boolean updateJobById(UUID id, Job updatedJob);
+
 }

@@ -5,28 +5,27 @@ import jakarta.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "jobs")
-public class Job {
+@Table(name = "companies")
+public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private String title;
+    private String name;
     private String description;
-    private String minSalary;
-    private String maxSalary;
     private String location;
+    private String email;
 
-    public Job(UUID id, String title, String description, String minSalary, String maxSalary, String location) {
+    public Company(UUID id, String name, String description, String location, String email) {
         this.id = id;
-        this.title = title;
+        this.name = name;
         this.description = description;
-        this.minSalary = minSalary;
-        this.maxSalary = maxSalary;
         this.location = location;
+        this.email = email;
     }
 
-    public Job() {
+    public Company() {
     }
+
 
     public UUID getId() {
         return id;
@@ -36,12 +35,12 @@ public class Job {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -52,22 +51,6 @@ public class Job {
         this.description = description;
     }
 
-    public String getMinSalary() {
-        return minSalary;
-    }
-
-    public void setMinSalary(String minSalary) {
-        this.minSalary = minSalary;
-    }
-
-    public String getMaxSalary() {
-        return maxSalary;
-    }
-
-    public void setMaxSalary(String maxSalary) {
-        this.maxSalary = maxSalary;
-    }
-
     public String getLocation() {
         return location;
     }
@@ -75,4 +58,13 @@ public class Job {
     public void setLocation(String location) {
         this.location = location;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
+
