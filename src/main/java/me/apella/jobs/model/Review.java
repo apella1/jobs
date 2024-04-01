@@ -13,7 +13,7 @@ public class Review {
     private Integer likes;
     private Integer dislikes;
 
-    @ManyToOne
+    @ManyToOne()
     private Company company;
 
     public Review(UUID id, String description, Integer likes, Integer dislikes, Company company) {

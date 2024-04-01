@@ -26,13 +26,16 @@ public class ReviewController {
 
     @PostMapping
     public ResponseEntity<String> createReview(@PathVariable UUID companyId, @RequestBody Review review) {
-        reviewService.createReview(companyId, review);
-        return new ResponseEntity<>("Review created successfully!", HttpStatus.CREATED);
+        boolean created = reviewService.createReview(companyId, review);
+        if (created) {
+            return new ResponseEntity<>("Review created successfully!", HttpStatus.CREATED);
+        }
+        return new ResponseEntity<>("Company does not exists", HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/{reviewId}")
     public ResponseEntity<Review> getReviewById(@PathVariable UUID companyId, @PathVariable UUID reviewId) {
-        Review review = reviewService.getReviewById(reviewId, companyId);
+        Review review = reviewService.getReviewById(companyId, reviewId);
         if (review == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

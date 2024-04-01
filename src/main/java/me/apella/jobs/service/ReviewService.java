@@ -8,7 +8,7 @@ import java.util.UUID;
 public interface ReviewService {
     List<Review> getAllReviews(UUID companyId);
 
-    void createReview(UUID companyId, Review review);
+    boolean createReview(UUID companyId, Review review);
 
     Review getReviewById(UUID companyId, UUID reviewId);
 
