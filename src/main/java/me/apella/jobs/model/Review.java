@@ -1,9 +1,6 @@
 package me.apella.jobs.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.UUID;
 
@@ -16,11 +13,15 @@ public class Review {
     private Integer likes;
     private Integer dislikes;
 
-    public Review(UUID id, String description, Integer likes, Integer dislikes) {
+    @ManyToOne
+    private Company company;
+
+    public Review(UUID id, String description, Integer likes, Integer dislikes, Company company) {
         this.id = id;
         this.description = description;
         this.likes = likes;
         this.dislikes = dislikes;
+        this.company = company;
     }
 
     public Review() {
@@ -56,5 +57,13 @@ public class Review {
 
     public void setDislikes(Integer dislikes) {
         this.dislikes = dislikes;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 }

@@ -17,33 +17,33 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public List<Review> findAll() {
-        return reviewRepository.findAll();
+    public List<Review> getAllReviews(UUID companyId) {
+        List<Review> reviews = reviewRepository.findByCompanyId(companyId);
+        return reviews;
     }
 
     @Override
-    public void createReview(Review review) {
+    public void createReview(UUID companyId, Review review) {
         reviewRepository.save(review);
     }
 
     @Override
-    public Review getReviewById(UUID id) {
-        return reviewRepository.findById(id).orElse(null);
+    public Review getReviewById(UUID companyId, UUID reviewId) {
+        return reviewRepository.findById(reviewId).orElse(null);
     }
 
     @Override
-    public boolean deleteReviewById(UUID id) {
-        Optional<Review> review = reviewRepository.findById(id);
-        if (review.isPresent()) {
-            reviewRepository.deleteById(id);
+    public boolean deleteReviewById(UUID companyId, UUID reviewId) {
+        if (reviewRepository.existsById(reviewId)) {
+            reviewRepository.deleteById(reviewId);
             return true;
         }
         return false;
     }
 
     @Override
-    public boolean updateReviewById(UUID id, Review updatedReview) {
-        Optional<Review> optionalReview = reviewRepository.findById(id);
+    public boolean updateReviewById(UUID companyId, UUID reviewId, Review updatedReview) {
+        Optional<Review> optionalReview = reviewRepository.findById(reviewId);
         if (optionalReview.isPresent()) {
             Review review = optionalReview.get();
             review.setDescription(updatedReview.getDescription());

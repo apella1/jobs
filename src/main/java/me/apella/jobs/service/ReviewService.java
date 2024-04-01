@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.UUID;
 
 public interface ReviewService {
-    List<Review> findAll();
+    List<Review> getAllReviews(UUID companyId);
 
-    void createReview(Review review);
+    void createReview(UUID companyId, Review review);
 
-    Review getReviewById(UUID id);
+    Review getReviewById(UUID companyId, UUID reviewId);
 
-    boolean deleteReviewById(UUID id);
+    boolean deleteReviewById(UUID companyID, UUID reviewId);
 
-    boolean updateReviewById(UUID id, Review updatedReview);
+    boolean updateReviewById(UUID companyId, UUID reviewId, Review updatedReview);
 }

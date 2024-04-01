@@ -1,11 +1,12 @@
 package me.apella.jobs.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "companies")
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -14,18 +15,42 @@ public class Company {
     private String description;
     private String location;
     private String email;
+    @JsonIgnore
+    @OneToMany(mappedBy = "company")
+    private List<Job> jobs;
 
-    public Company(UUID id, String name, String description, String location, String email) {
+    @JsonIgnore
+    @OneToMany(mappedBy = "company")
+    private List<Review> reviews;
+
+    public Company(UUID id, String name, String description, String location, String email, List<Job> jobs, List<Review> reviews) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.location = location;
         this.email = email;
+        this.jobs = jobs;
+        this.reviews = reviews;
     }
 
     public Company() {
     }
 
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public List<Job> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
+    }
 
     public UUID getId() {
         return id;
