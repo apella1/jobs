@@ -1,6 +1,7 @@
-package me.apella.jobs.model;
+package me.apella.jobs.review;
 
 import jakarta.persistence.*;
+import me.apella.jobs.company.Company;
 
 import java.util.UUID;
 

@@ -1,7 +1,5 @@
-package me.apella.jobs.controller;
+package me.apella.jobs.job;
 
-import me.apella.jobs.model.Job;
-import me.apella.jobs.service.JobService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

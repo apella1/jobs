@@ -1,8 +1,7 @@
-package me.apella.jobs.service;
+package me.apella.jobs.review;
 
-import me.apella.jobs.model.Company;
-import me.apella.jobs.model.Review;
-import me.apella.jobs.repository.ReviewRepository;
+import me.apella.jobs.company.Company;
+import me.apella.jobs.company.CompanyService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

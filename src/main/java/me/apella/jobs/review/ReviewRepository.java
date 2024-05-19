@@ -1,6 +1,5 @@
-package me.apella.jobs.repository;
+package me.apella.jobs.review;
 
-import me.apella.jobs.model.Review;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

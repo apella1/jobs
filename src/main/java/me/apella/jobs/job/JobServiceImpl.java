@@ -1,7 +1,5 @@
-package me.apella.jobs.service;
+package me.apella.jobs.job;
 
-import me.apella.jobs.model.Job;
-import me.apella.jobs.repository.JobRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

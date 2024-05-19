@@ -1,7 +1,9 @@
-package me.apella.jobs.model;
+package me.apella.jobs.company;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import me.apella.jobs.job.Job;
+import me.apella.jobs.review.Review;
 
 import java.util.List;
 import java.util.UUID;

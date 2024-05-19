@@ -1,6 +1,5 @@
-package me.apella.jobs.repository;
+package me.apella.jobs.company;
 
-import me.apella.jobs.model.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

@@ -1,6 +1,4 @@
-package me.apella.jobs.service;
-
-import me.apella.jobs.model.Review;
+package me.apella.jobs.review;
 
 import java.util.List;
 import java.util.UUID;

@@ -1,6 +1,4 @@
-package me.apella.jobs.service;
-
-import me.apella.jobs.model.Company;
+package me.apella.jobs.company;
 
 import java.util.List;
 import java.util.UUID;
