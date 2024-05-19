@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/companies")
@@ -29,7 +28,7 @@ public class CompanyController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Company> getCompanyById(@PathVariable UUID id) {
+    public ResponseEntity<Company> getCompanyById(@PathVariable Integer id) {
         Company company = companyService.getCompanyById(id);
         if (company == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -38,7 +37,7 @@ public class CompanyController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateCompanyById(@PathVariable UUID id, @RequestBody Company updatedCompany) {
+    public ResponseEntity<String> updateCompanyById(@PathVariable Integer id, @RequestBody Company updatedCompany) {
         boolean updated = companyService.updateCompanyById(id, updatedCompany);
         if (updated) {
             return new ResponseEntity<>("Company updated successfully!", HttpStatus.OK);
@@ -47,7 +46,7 @@ public class CompanyController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteCompanyById(@PathVariable UUID id) {
+    public ResponseEntity<String> deleteCompanyById(@PathVariable Integer id) {
         boolean deleted = companyService.deleteCompanyById(id);
         if (deleted) {
             return new ResponseEntity<>("Company deleted successfully!", HttpStatus.OK);

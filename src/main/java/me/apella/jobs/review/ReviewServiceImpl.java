@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class ReviewServiceImpl implements ReviewService {
@@ -20,7 +19,7 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public List<Review> getAllReviews(UUID companyId) {
+    public List<Review> getAllReviews(Integer companyId) {
         Company company = companyService.getCompanyById(companyId);
         if (company != null) {
             List<Review> reviews = reviewRepository.findByCompanyId(companyId);
@@ -30,7 +29,7 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public boolean createReview(UUID companyId, Review review) {
+    public boolean createReview(Integer companyId, Review review) {
         Company company = companyService.getCompanyById(companyId);
         if (company != null) {
             review.setCompany(company);
@@ -41,13 +40,13 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public Review getReviewById(UUID companyId, UUID reviewId) {
+    public Review getReviewById(Integer companyId, Integer reviewId) {
         List<Review> reviews = reviewRepository.findByCompanyId(companyId);
         return reviews.stream().filter(review -> review.getId().equals(reviewId)).findFirst().orElse(null);
     }
 
     @Override
-    public boolean deleteReviewById(UUID companyId, UUID reviewId) {
+    public boolean deleteReviewById(Integer companyId, Integer reviewId) {
         if (companyService.getCompanyById(companyId) != null && reviewRepository.existsById(reviewId)) {
             reviewRepository.deleteById(reviewId);
             return true;
@@ -56,7 +55,7 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public boolean updateReviewById(UUID companyId, UUID reviewId, Review updatedReview) {
+    public boolean updateReviewById(Integer companyId, Integer reviewId, Review updatedReview) {
         if (companyService.getCompanyById(companyId) != null) {
             Optional<Review> optionalReview = reviewRepository.findById(reviewId);
             if (optionalReview.isPresent()) {

@@ -1,16 +1,15 @@
 package me.apella.jobs.review;
 
 import java.util.List;
-import java.util.UUID;
 
 public interface ReviewService {
-    List<Review> getAllReviews(UUID companyId);
+    List<Review> getAllReviews(Integer companyId);
 
-    boolean createReview(UUID companyId, Review review);
+    boolean createReview(Integer companyId, Review review);
 
-    Review getReviewById(UUID companyId, UUID reviewId);
+    Review getReviewById(Integer companyId, Integer reviewId);
 
-    boolean deleteReviewById(UUID companyID, UUID reviewId);
+    boolean deleteReviewById(Integer companyID, Integer reviewId);
 
-    boolean updateReviewById(UUID companyId, UUID reviewId, Review updatedReview);
+    boolean updateReviewById(Integer companyId, Integer reviewId, Review updatedReview);
 }

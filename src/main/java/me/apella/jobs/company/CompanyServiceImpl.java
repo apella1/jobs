@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class CompanyServiceImpl implements CompanyService {
@@ -26,12 +25,12 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public Company getCompanyById(UUID id) {
+    public Company getCompanyById(Integer id) {
         return companyRepository.findById(id).orElse(null);
     }
 
     @Override
-    public boolean deleteCompanyById(UUID id) {
+    public boolean deleteCompanyById(Integer id) {
         Optional<Company> company = companyRepository.findById(id);
         if (company.isPresent()) {
             companyRepository.deleteById(id);
@@ -41,7 +40,7 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public boolean updateCompanyById(UUID id, Company updatedCompany) {
+    public boolean updateCompanyById(Integer id, Company updatedCompany) {
         Optional<Company> optionalCompany = companyRepository.findById(id);
         if (optionalCompany.isPresent()) {
             Company company = optionalCompany.get();
